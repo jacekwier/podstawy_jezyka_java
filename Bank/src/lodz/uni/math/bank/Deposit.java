@@ -16,6 +16,17 @@ public class Deposit extends Transaction
 		idCounter+=1;
 	}
 	
+	public String getDescriptionToHistory()
+	{
+		String toReturn="Deposit:";
+		toReturn+="\n\tId: "+this.getId();
+		toReturn+="\n\tFrom: "+this.getAccount();
+		toReturn+="\n\tAmount: "+this.getAmount();
+		toReturn+="\n\tDate: "+this.getDate().toLocaleString();
+		toReturn+="\n\tDescription: "+this.getDescription()+"\n";
+		return toReturn;
+	}
+	
 	/*
 	 * A gdyby pole id przeniesc do deposit ?
 	 */

@@ -98,6 +98,19 @@ public class Client
 		this.activeAccount.addMoney(aa);
 		
 	}
+
+	public String getHistory() 
+	{
+		String toReturn="History of client: "+this.name+" "+this.surname;
+		toReturn+="\nAccount: [ID]"+this.activeAccount.getIdAccount();
+		toReturn+=" [Number]"+this.activeAccount.getAccountNumber()+"\n";
+		for (Transaction t:this.activeAccount.getHistory())
+		{
+			toReturn+=t.getDescriptionToHistory();
+			
+		}
+		return toReturn;
+	}
 	
 
 }

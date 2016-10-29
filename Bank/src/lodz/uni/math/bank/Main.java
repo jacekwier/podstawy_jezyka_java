@@ -30,6 +30,8 @@ public class Main {
 		client1.makeDeposit("666666666666666",50.10,"Noc z java");
 		client2.makeDeposit("777777777777777",10,"EEE");
 		logger.info(client1.getActiveAccount().toString());
+		
+		logger.info(client1.getHistory());
 	}
 
 }

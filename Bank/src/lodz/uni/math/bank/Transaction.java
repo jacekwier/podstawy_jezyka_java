@@ -10,6 +10,7 @@ public abstract class Transaction
 	private Date date;
 	private String description;
 	private Integer id;
+	private String descriptionToHistory;
 	public String getAccount() {
 		return account;
 	}
@@ -39,6 +40,12 @@ public abstract class Transaction
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getDescriptionToHistory() {
+		return descriptionToHistory;
+	}
+	public void setDescriptionToHistory(String descriptionToHistory) {
+		this.descriptionToHistory = descriptionToHistory;
 	}
 
 }
