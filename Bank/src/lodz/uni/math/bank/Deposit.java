@@ -5,15 +5,12 @@ import java.util.Date;
 
 public class Deposit extends Transaction
 {
-	private static Integer idCounter=10000;
-	
-	public Deposit(String account, double amount, String description) {
+	public Deposit(String account, BigDecimal amount, String description,Integer id) {
 		this.setAccount(account);
-		this.setAmount(new BigDecimal(amount));
+		this.setAmount(amount);
 		this.setDate(new Date());
 		this.setDescription(description);
-		this.setId(idCounter);
-		idCounter+=1;
+		this.setId(id);
 	}
 	
 	public String getDescriptionToHistory()
@@ -22,14 +19,8 @@ public class Deposit extends Transaction
 		toReturn+="\n\tId: "+this.getId();
 		toReturn+="\n\tFrom: "+this.getAccount();
 		toReturn+="\n\tAmount: "+this.getAmount();
-		toReturn+="\n\tDate: "+this.getDate().toLocaleString();
+		toReturn+="\n\tDate: "+this.getDate().toString();
 		toReturn+="\n\tDescription: "+this.getDescription()+"\n";
 		return toReturn;
 	}
-	
-	/*
-	 * A gdyby pole id przeniesc do deposit ?
-	 */
-	
-
 }

@@ -90,12 +90,12 @@ public class Client
 		}
 	}
 
-	public void makeDeposit(String account, double amount, String description) 
+	public void makeDeposit(String account, String _amount, String description) 
 	{
-		Transaction transaction=new Deposit(account,amount,description);
+		BigDecimal amount=new BigDecimal(_amount);
+		Transaction transaction=new Deposit(account,amount,description,this.activeAccount.getIdDeposit());
 		this.activeAccount.addToHistory(transaction);
-		BigDecimal aa=new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
-		this.activeAccount.addMoney(aa);
+		this.activeAccount.addMoney(amount);
 		
 	}
 

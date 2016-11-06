@@ -26,12 +26,13 @@ public class Main {
 		//logger.info(client1.getActiveAccount().toString());
 		//logger.info(client1.getAccounts());
 		client1.setActiveAccount(0);
-		client1.makeDeposit("555555555555555",50.05,"Spac mi sie chce -.-'");
-		client1.makeDeposit("666666666666666",50.10,"Noc z java");
-		client2.makeDeposit("777777777777777",10,"EEE");
+		client1.makeDeposit("555555555555555","50.05","Spac mi sie chce -.-'");
+		client1.makeDeposit("666666666666666","50.10","Noc z java");
+		client2.makeDeposit("777777777777777","10","EEE");
 		logger.info(client1.getActiveAccount().toString());
 		
 		logger.info(client1.getHistory());
+		logger.info(client2.getHistory());
 	}
 
 }

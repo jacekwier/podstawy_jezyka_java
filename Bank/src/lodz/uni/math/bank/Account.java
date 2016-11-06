@@ -8,13 +8,16 @@ public class Account
 	private Integer idAccount;
 	private String accountNumber;
 	private String accountDesc;
-	private BigDecimal money=new BigDecimal(0).setScale(2, BigDecimal.ROUND_HALF_UP);
+	private BigDecimal money;
 	private LinkedList<Transaction> history=new LinkedList<Transaction>();
+	private Integer idDeposit;
 	
 	public Account(int idAccount, String accountNumber, String accountDesc) {
 		this.setIdAccount(idAccount);
 		this.setAccountNumber(accountNumber);
 		this.setAccountDesc(accountDesc);
+		money=new BigDecimal(0);
+		setIdDeposit(new Integer(10000));
 	}
 
 	public Integer getIdAccount() {
@@ -73,5 +76,14 @@ public class Account
 	public void addMoney(BigDecimal money)
 	{
 		this.money=this.money.add(money);
+	}
+
+	public Integer getIdDeposit() {
+		this.idDeposit+=1;
+		return idDeposit-1;
+	}
+
+	public void setIdDeposit(Integer idDeposit) {
+		this.idDeposit = idDeposit;
 	}
 }
