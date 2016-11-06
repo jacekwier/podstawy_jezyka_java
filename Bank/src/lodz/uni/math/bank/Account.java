@@ -11,6 +11,7 @@ public class Account
 	private BigDecimal money;
 	private LinkedList<Transaction> history=new LinkedList<Transaction>();
 	private Integer idDeposit;
+	private Integer idCheck;
 	
 	public Account(int idAccount, String accountNumber, String accountDesc) {
 		this.setIdAccount(idAccount);
@@ -18,6 +19,7 @@ public class Account
 		this.setAccountDesc(accountDesc);
 		money=new BigDecimal(0);
 		setIdDeposit(new Integer(10000));
+		setIdCheck(100);
 	}
 
 	public Integer getIdAccount() {
@@ -85,5 +87,14 @@ public class Account
 
 	public void setIdDeposit(Integer idDeposit) {
 		this.idDeposit = idDeposit;
+	}
+
+	public Integer getIdCheck() {
+		this.idCheck+=1;
+		return idCheck-1;
+	}
+
+	public void setIdCheck(Integer idCheck) {
+		this.idCheck = idCheck;
 	}
 }

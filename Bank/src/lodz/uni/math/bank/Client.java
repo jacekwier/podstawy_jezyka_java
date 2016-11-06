@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-public class Client 
+public class Client extends Bank
 {
 	private static int clientCounter=0;
 	private String name=null;
@@ -13,10 +13,12 @@ public class Client
 	private LinkedList<Account> accountList= new LinkedList<Account>();
 	private Integer idAccount=0;
 	private Account activeAccount=null;
+	private Integer idWireOut=new Integer("0");
 	
 	Client()
 	{
 		clientCounter+=1;
+		clientList.add(this);
 	}
 	
 	Client(String name, String surname, GregorianCalendar birthDate)
@@ -25,6 +27,7 @@ public class Client
 		this.surname=surname;
 		this.birthDate=birthDate;
 		clientCounter+=1;
+		clientList.add(this);
 	}
 	
 	public Client(String name, String surname) 
@@ -32,6 +35,7 @@ public class Client
 		this.name=name;
 		this.surname=surname;
 		clientCounter+=1;
+		clientList.add(this);
 	}
 
 	public static int getClientCounter() 
@@ -110,6 +114,41 @@ public class Client
 			
 		}
 		return toReturn;
+	}
+
+	public void makeCheck(String toAccount, String _amount, String description) {
+		BigDecimal amount=new BigDecimal(_amount);
+		Transaction transaction=new Check(toAccount, amount,description,this.activeAccount.getIdCheck());
+		this.activeAccount.addToHistory(transaction);
+		this.activeAccount.addMoney(amount.multiply(new BigDecimal("-1")));
+		for(Client client:clientList)
+		{
+			for(Account account:client.accountList)
+			{
+				if(toAccount.equals(account.getAccountNumber()))
+				{
+					client.setActiveAccount(account);
+					client.makeDeposit(this.activeAccount.getAccountNumber(),
+							_amount, description);
+					continue;
+				}
+			}
+		}
+	}
+
+	public void makeWireOut(String toAccount, String _amount, String description, 
+			String country, String swift) {
+		BigDecimal amount=new BigDecimal(_amount);
+		Transaction transaction=new WireOut(toAccount, amount,description,getIdWireOut(), country,swift);
+		this.activeAccount.addToHistory(transaction);
+		this.activeAccount.addMoney(amount.multiply(new BigDecimal("-1")));
+		
+	}
+	
+	public Integer getIdWireOut()
+	{
+		idWireOut+=1;
+		return idWireOut;
 	}
 	
 
