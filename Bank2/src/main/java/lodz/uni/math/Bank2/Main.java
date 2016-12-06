@@ -1,6 +1,5 @@
 package lodz.uni.math.Bank2;
 
-import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 
 public class Main {
@@ -10,15 +9,16 @@ public class Main {
 		Logger logger = Logger.getLogger(Main.class.getName());
 		
 			/**Tworzenie kientow*/
-		Client client1=new Client("Jan","Nowak",new GregorianCalendar(1994,1,1));
-		Client client2=new Client("Adam","Kowalski");
+		Client client1=new Client("Jan","Nowak","94120201399");
+		Client client2=new Client("Adam","Kowalski","02070803628");
 		//logger.info(client1.toString());
 		//logger.info(client2.toString());
 		
 			/**Dodanie kont do klienta pierwszego i drugiego*/
-		client1.addAccount("000000000000001","Konto 1 klienta1");
-		client1.addAccount("000000000000002","Konto 2 klienta2");
-		client2.addAccount("000000000000003","Konto 1 klienta2");
+		client1.addAccount("Konto 1 klienta1");
+		//logger.info(client1.getAccounts());
+		client1.addAccount("Konto 2 klienta1");
+		client2.addAccount("Konto 1 klienta2");
 		//logger.info(client1.getAccounts());
 		//logger.info(client2.getAccounts());
 		
@@ -29,7 +29,7 @@ public class Main {
 		client1.makeDeposit("555555555555555","50.05","Spac mi sie chce -.-'");
 		client1.makeDeposit("666666666666666","50.10","Noc z java");
 		client2.makeDeposit("777777777777777","10","EEE");
-		//logger.info(client1.getHistory());
+		logger.info(client1.getHistory());
 		//logger.info(client2.getHistory());
 		
 			/**Przelew na istniejace konto*/
@@ -47,9 +47,9 @@ public class Main {
 		
 			/**Wire-out*/
 		client1.makeWireOut("123456789012345","19.99","Poza kraj","Sweden","111112222233333");
-		logger.info(client1.getActiveAccount().toString());
-		logger.info(client1.getHistory());
-		logger.info(client1.getActiveAccount().toString());
+		//logger.info(client1.getActiveAccount().toString());
+		//logger.info(client1.getHistory());
+		//logger.info(client1.getActiveAccount().toString());
 	}
 
 }

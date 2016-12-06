@@ -11,107 +11,102 @@ public class TestAccount extends TestCase {
 	Account account=new Account(3, "123456789123456", "Konto");
 	
 	@Test
+	public void testAccount(){
+		new Account(2,"123456789012345","Kontoo");
+	}
+	
+	@Test
 	public void testGetIdAccount()
 	{
-		assertEquals(account.getIdAccount(), (Integer)3);
+		assertEquals((Integer)3,account.getIdAccount());
 	}
 	
 	@Test
 	public void testSetIdAccount()
 	{
 		account.setIdAccount((Integer)4);
-		assertEquals(account.getIdAccount(), (Integer)4);
+		assertEquals((Integer)4,account.getIdAccount());
 	}
 	
 	@Test
 	public void testGetAccountNumber()
 	{
-		assertEquals(account.getAccountNumber(), "123456789123456");
+		assertEquals("123456789123456",account.getAccountNumber());
 	}
 	
 	@Test
 	public void testSetAccountNumber()
 	{
 		account.setAccountNumber("123456789123450");
-		assertEquals(account.getAccountNumber(), "123456789123450");
+		assertEquals("123456789123450",account.getAccountNumber());
 	}
 	
 	@Test
 	public void testGetAccountDesc()
 	{
-		assertEquals(account.getAccountDesc(), "Konto");
+		assertEquals("Konto",account.getAccountDesc());
 	}
 	
 	@Test
 	public void testSetAccountDesc()
 	{
 		account.setAccountDesc("Konto2");
-		assertEquals(account.getAccountDesc(), "Konto2");
+		assertEquals("Konto2",account.getAccountDesc());
 	}
 	
 	@Test
 	public void testGetmoney()
 	{
-		assertEquals(account.getMoney(), new BigDecimal("0"));
+		assertEquals(new BigDecimal("0"),account.getMoney());
 	}
 	
 	@Test
 	public void testSetmoney()
 	{
 		account.setMoney(new BigDecimal("33.3"));
-		assertEquals(account.getMoney(), new BigDecimal("33.3"));
+		assertEquals(new BigDecimal("33.3"),account.getMoney());
 	}
 	
 	@Test
 	public void testToString()
 	{
-		assertEquals(account.toString(), "ID: 3, Number: 123456789123456\n\tDescription:Konto\n\tMoney: 0\n");
+		assertEquals("ID: 3, Number: 123456789123456\n\tDescription:Konto\n\tMoney: 0\n",account.toString());
 	}
 	
 	@Test
 	public void testgetHistory()
 	{
-		assertEquals(account.getHistory(), new LinkedList<Transaction>());
-	}
-	
-	@Test
-	public void testSetHistory()
-	{
-		Transaction t=new Check("000000000000001", new BigDecimal("1"), "Opis", 101);
-		LinkedList<Transaction> l=new LinkedList<>();
-		l.add(t);
-		account.setHistory(l);
-		assertEquals(account.getHistory(), l);
+		assertEquals(new LinkedList<Transaction>(),account.getHistory());
 	}
 	
 	@Test
 	public void testAddTohistory()
 	{
-		Transaction t=new Check("000000000000001", new BigDecimal("1"), "Opis", 101);
+		Transaction t=new Deposit("000000000000001", new BigDecimal("1"), "Opis", 101,account);
 		account.addToHistory(t);
 		LinkedList<Transaction> l=new LinkedList<>();
 		l.add(t);
-		assertEquals(account.getHistory(), l);
+		assertEquals(t,account.getHistory().get(0));
 	}
 	
 	@Test
 	public void testAddmoney()
 	{
 		account.addMoney(new BigDecimal("5"));
-		assertEquals(account.getMoney(), new BigDecimal("5"));
+		assertEquals(new BigDecimal("5"),account.getMoney());
 	}
 
 	@Test
 	public void testGetIdDeposit()
 	{
-		assertEquals(account.getIdDeposit(), (Integer)10000);
+		assertEquals((Integer)10000,account.getIdDeposit());
 	}
 	
 	@Test
 	public void testSetIdDeposit()
 	{
 		account.setIdDeposit(10005);
-		assertEquals(account.getIdDeposit(), (Integer)10005);
+		assertEquals((Integer)10005,account.getIdDeposit());
 	}
 	
 	

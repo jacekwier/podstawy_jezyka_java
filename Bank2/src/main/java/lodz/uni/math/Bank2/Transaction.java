@@ -11,9 +11,12 @@ public abstract class Transaction
 	private String description;
 	private Integer id;
 	private String descriptionToHistory;
+	private String moneyAfterTransaction="";
+	
 	public String getAccount() {
 		return account;
 	}
+	
 	public void setAccount(String account) {
 		this.account = account;
 	}
@@ -44,8 +47,16 @@ public abstract class Transaction
 	public String getDescriptionToHistory() {
 		return descriptionToHistory;
 	}
-	public void setDescriptionToHistory(String descriptionToHistory) {
+	/*public void setDescriptionToHistory(String descriptionToHistory) {
 		this.descriptionToHistory = descriptionToHistory;
+	}*/
+
+	public String getMoneyAfterTransaction() {
+		return moneyAfterTransaction;
+	}
+
+	public void setMoneyAfterTransaction(String moneyAfterTransaction) {
+		this.moneyAfterTransaction = moneyAfterTransaction;
 	}
 
 }

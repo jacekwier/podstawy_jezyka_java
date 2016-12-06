@@ -1,7 +1,7 @@
 package lodz.uni.math.Bank2;
 
 import java.math.BigDecimal;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Account 
 {
@@ -9,7 +9,7 @@ public class Account
 	private String accountNumber;
 	private String accountDesc;
 	private BigDecimal money;
-	private LinkedList<Transaction> history=new LinkedList<Transaction>();
+	private ArrayList<Transaction> history=new ArrayList<Transaction>();
 	private Integer idDeposit;
 	private Integer idCheck;
 	
@@ -23,7 +23,7 @@ public class Account
 	}
 
 	public Integer getIdAccount() {
-		return idAccount;
+		return this.idAccount;
 	}
 
 	public void setIdAccount(Integer idAccount) {
@@ -63,12 +63,8 @@ public class Account
 		return toReturn;
 	}
 
-	public LinkedList<Transaction> getHistory() {
+	public ArrayList<Transaction> getHistory() {
 		return history;
-	}
-
-	public void setHistory(LinkedList<Transaction> history) {
-		this.history = history;
 	}
 	
 	public void addToHistory(Transaction t)
