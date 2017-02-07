@@ -185,5 +185,4 @@ public class Client extends Bank
 		return ++idWireOut;
 	}
 	
-
 }

@@ -20,9 +20,9 @@ public class Account
 	private Integer idCheck;
 	
 	public Account(int idAccount, String accountNumber, String accountDesc) {
-		this.setIdAccount(idAccount);
-		this.setAccountNumber(accountNumber);
-		this.setAccountDesc(accountDesc);
+		this.idAccount=idAccount;
+		this.accountNumber=accountNumber;
+		this.accountDesc=accountDesc;
 		money=INITIAL_MONEY;
 		setIdDeposit(FIRST_DEPOSIT_ID);
 		setIdCheck(FIRST_CHECK_ID);
@@ -32,16 +32,8 @@ public class Account
 		return this.idAccount;
 	}
 
-	public void setIdAccount(Integer idAccount) {
-		this.idAccount = idAccount;
-	}
-
 	public String getAccountNumber() {
 		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 	public String getAccountDesc() {

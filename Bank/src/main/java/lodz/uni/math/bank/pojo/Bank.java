@@ -10,17 +10,13 @@ public class Bank
 	public static ArrayList<Client> clientList=new ArrayList<Client>();
 	private static BigInteger lastNumberAccount=INITIAL_NUMBER_ACCOUNT;
 	
-	public  static BigInteger getLastNumberAccount() {
-		return Bank.lastNumberAccount;
-	}
-	
-	public void setLastNumberAccount(BigInteger lastNumberAccount) {
+	public static void setLastNumberAccount(BigInteger lastNumberAccount) {
 		Bank.lastNumberAccount = lastNumberAccount;
 	}
 	
 	public String getNewNumberAccount(){
-		setLastNumberAccount(getLastNumberAccount().add(new BigInteger("1")));
-		String accountNumber=getLastNumberAccount().toString();
+		Bank.lastNumberAccount=(Bank.lastNumberAccount.add(new BigInteger("1")));
+		String accountNumber=Bank.lastNumberAccount.toString();
 		String zeros="";
 		for(int i=0;i<15-accountNumber.length();i++){
 			zeros+="0";
